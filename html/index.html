@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>welcome</title>
+</head>
+<body>
+<div style="margin:0 auto;text-align: center; border-buttom: black;height:700px;">
+    <h1> welcome to my demo_auth</h1>
+    <p>
+    <ul style="list-style:none;text-align:left;margin: 100px auto;width:800px;">
+        <li> register:<br/>
+            api: /register/
+            method: POST
+            parameter: name, email(must), cell_phone, photo, password(must)
+        </li>
+        <li> login:<br/>
+            api: /login/
+            method: POST
+            parameter: email(must), password(must)
+        </li>
+        <li> logout:<br/>
+            api: /logout/
+            method: POST
+            requirements: login is a must
+        </li>
+        <li> user_info:<br/>
+            api: /user_info/
+            method: GET/POST
+            requirements: login is a must
+            use POST to update.
+        </li>
+    </ul>
+    </p>
+    <br />
+    <p>
+        <a href="/admin" target="_blank">admin</a>
+        <br/>
+        <strong>accout:</strong>
+        <br/>
+        admin:yup
+        <br />
+        password:1
+    </p>
+    <form action="/register" method="POST">
+       name: <input type="text" name="name" />
+       cell_phone:<input type="text" name="cell_phone"/>
+
+    </form>
+    </div>
+
+</body>
+</html>
