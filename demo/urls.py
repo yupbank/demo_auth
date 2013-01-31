@@ -1,13 +1,17 @@
 from django.conf.urls import patterns, include, url
 from auth.views import Register, Login, UserInfoHandler, Logout
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from auth.api import MyUserResource
+from auth.api import MyUserResource, UserInfoResource
+from tastypie.api import Api
+
+
+v1_api = Api(api_name='v1')
+v1_api.register(MyUserResource())
+v1_api.register(UserInfoResource())
+
 from demo import  settings
 
 admin.autodiscover()
-
-my_user_resource = MyUserResource()
 
 urlpatterns = patterns('',
     url(r'^$', 'auth.views.index', name='index'),
@@ -25,11 +29,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(my_user_resource.urls)),
+    url(r'^api/', include(v1_api.urls)),
 )
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
     )
-print settings.STATIC_ROOT
 

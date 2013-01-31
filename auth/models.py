@@ -28,7 +28,7 @@ class MyUser(models.Model):
     def __unicode__(self):
         return '<%s>'%self.email
     
-    backend = 'auth.auth_backend.CustomUserModelBackend'
+    backend = 'auth.auth_backend.MyUserModelBackend'
 
 def get_image_path(instance, filename):
     return os.path.join('static', str(instance.user.id), filename)
@@ -45,7 +45,7 @@ class UserInfo(models.Model):
         return dict(
             id = self.user.id,
             name = self.name,
-            photo = self.photo._get_url(),
+            photo = self.photo._get_url() if self.photo else None,
             cell_phone = self.cell_phone,
             create_time = str(self.create_time)
         )

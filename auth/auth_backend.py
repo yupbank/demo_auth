@@ -2,7 +2,9 @@ from django.contrib.auth.backends import ModelBackend
 from .models import MyUser
 
 
-class CustomUserModelBackend(ModelBackend):
+
+
+class MyUserModelBackend(ModelBackend):
     def authenticate(self, email=None, password=None):
         try:
             user = self.user_class.objects.get(email=email)

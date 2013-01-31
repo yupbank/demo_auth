@@ -128,7 +128,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 AUTHENTICATION_BACKENDS = [
-   'auth.auth_backend.CustomUserModelBackend',
+   'auth.auth_backend.MyUserModelBackend',
    'django.contrib.auth.backends.ModelBackend'
 ]
 CUSTOM_USER_MODEL = 'auth.models.MyUser'

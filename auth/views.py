@@ -54,6 +54,7 @@ class Login(BaseView):
         password = request.POST.get('password')
         user = auth.authenticate(email=email, password=password)
         if user:
+            auth.login(request, user)
             return self.render(data=user.to_dict())
         return self.render(error="something wrong with the input")
 
