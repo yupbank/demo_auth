@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from auth.views import Register, Login, UserInfoHandler, Logout
+from auth.views import Register, Login, UserInfoHandler, Logout, ResetPassword, Password
 from django.contrib import admin
 from auth.api import MyUserResource, UserInfoResource
 from tastypie.api import Api
@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     url(r'^login$', Login()),
     url(r'^user_info$', UserInfoHandler()),
     url(r'^logout$', Logout()),
+    url(r'^reset_password$', ResetPassword()),
+    url(r'^change_password', Password()),
     #url(),
     # Examples:
     # url(r'^$', 'demo.views.home', name='home'),
