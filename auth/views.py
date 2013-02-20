@@ -11,7 +11,7 @@ import json
 
 
 def index(request):
-    return render_to_response('index.html')
+    return render_to_response('index.html', {'Loggedin':request.user.is_authenticated()})
 
 def login_required(func):
     def _(self, request, *args, **kwargs):

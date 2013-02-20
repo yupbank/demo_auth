@@ -42,6 +42,16 @@
         <br />
         password:1
     </p>
+    <form action="/login" method="POST">
+        email:<input type="text" name="email"/>
+        password:<input type="password" name="password"/>
+        <input type="submit">
+    </form>
+    {% if Loggedin %}
+        <form action="/logout" method="POST">
+        <input type="submit" value="logout">
+        </form>
+    {% endif %}
     <form action="/register" method="POST">
        name: <input type="text" name="name" />
        cell_phone:<input type="text" name="cell_phone"/>

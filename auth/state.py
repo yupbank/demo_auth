@@ -1,2 +1,4 @@
 NEW_USER = 1
 SET_NEW = 2
+
+SMALL_KV = {}

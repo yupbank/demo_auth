@@ -129,7 +129,7 @@ INSTALLED_APPS = (
 )
 AUTHENTICATION_BACKENDS = [
    'auth.auth_backend.MyUserModelBackend',
-   'django.contrib.auth.backends.ModelBackend'
+   'django.contrib.auth.backends.ModelBackend',
 ]
 CUSTOM_USER_MODEL = 'auth.models.MyUser'
 # A sample logging configuration. The only tangible logging

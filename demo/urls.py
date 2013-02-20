@@ -1,15 +1,10 @@
 from django.conf.urls import patterns, include, url
 from auth.views import Register, Login, UserInfoHandler, Logout, ResetPassword, Password
 from django.contrib import admin
-from auth.api import MyUserResource, UserInfoResource
-from tastypie.api import Api
 
 
-v1_api = Api(api_name='v1')
-v1_api.register(MyUserResource())
-v1_api.register(UserInfoResource())
 
-from demo import  settings
+from demo import settings
 
 admin.autodiscover()
 
@@ -31,7 +26,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(v1_api.urls)),
 )
 if settings.DEBUG:
     urlpatterns += patterns('',
